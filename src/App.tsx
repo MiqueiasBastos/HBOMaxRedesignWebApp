@@ -5,17 +5,8 @@ import { Header } from "./components/Header";
 import imdbLogo from "./assets/imdb-logo.svg";
 import playButton from "./assets/play.svg";
 
-import imgDriveMyCar from "./assets/popular-collections/drive-my-car.png";
-import imgDuna from "./assets/popular-collections/duna.png";
-import imgEuphoria from "./assets/popular-collections/euphoria.png";
-import imgMoneyHeist from "./assets/popular-collections/money-heist.png";
-import imgPeacemaker from "./assets/popular-collections/peacemaker.png";
-import imgTickTickBoom from "./assets/popular-collections/tick-tick-boom.png";
-
-import imgMoonfall from "./assets/new-releases/moonfall.png";
-import imgKingRichard from "./assets/new-releases/king-richard.png";
-import imgArchive81 from "./assets/new-releases/archive-81.png";
-import imgTickTickBookLarge from "./assets/new-releases/tick-tick-boom.png";
+import { data } from "./data/home";
+import { Carousel } from "./components/Carousel";
 
 function App() {
     return (
@@ -38,59 +29,11 @@ function App() {
                     </div>
                     <Button icon={playButton}>Watch Now</Button>
                 </div>
-
-                <h2>Popular Collections</h2>
-                <div className="collections-carousel">
-                    <a href="#">
-                        <img src={imgPeacemaker} alt="" />
-                    </a>
-                    <a href="#">
-                        <img src={imgEuphoria} alt="" />
-                    </a>
-                    <a href="#">
-                        <img src={imgDriveMyCar} alt="" />
-                    </a>
-                    <a href="#">
-                        <img src={imgDuna} alt="" />
-                    </a>
-                    <a href="#">
-                        <img src={imgMoneyHeist} alt="" />
-                    </a>
-                    <a href="#">
-                        <img src={imgTickTickBoom} alt="" />
-                    </a>
-                </div>
-                <h2>New Releases</h2>
-                <div className="releases-carousel">
-                    <a href="#">
-                        <span>
-                            <h3>Moonfall</h3>
-                            <p>Action | Adventure | Sci-Fi</p>
-                        </span>
-                        <img src={imgMoonfall} alt="" />
-                    </a>
-                    <a href="#">
-                        <span>
-                            <h3>King Richard</h3>
-                            <p>Sports | Drama</p>
-                        </span>
-                        <img src={imgKingRichard} alt="" />
-                    </a>
-                    <a href="#">
-                        <span>
-                            <h3>Archive 81</h3>
-                            <p>Action | Adventure | Sci-Fi</p>
-                        </span>
-                        <img src={imgArchive81} alt="" />
-                    </a>
-                    <a href="#">
-                        <span>
-                            <h3>Tick Tick Book</h3>
-                            <p>Music | Drama</p>
-                        </span>
-                        <img src={imgTickTickBookLarge} alt="" />
-                    </a>
-                </div>
+                <Carousel
+                    title="Popular Collections"
+                    data={data.popularCollections}
+                />
+                <Carousel title="New Releases" data={data.newReleases} details />
             </div>
         </div>
     );
